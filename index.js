@@ -89,8 +89,10 @@ function calculateTotalPriceOfItemsInCart(cart) {
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].quantity === 1) {
       totalPrice = totalPrice + cart[i].price;
-    } else {
+    } else if(cart[i].quantity > 1){
       totalPrice = totalPrice + cart[i].price * cart[i].quantity;
+    }else{
+      return 0;
     }
   }
   return totalPrice;
